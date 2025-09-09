@@ -1,9 +1,8 @@
-
-# Script
+#!/bin/sh
 
 ENVIRONMENT="${1:-dev}"
 
-case "$ENVIRONMENT" in 
+case "$ENVIRONMENT" in
    dev)
       echo "Starting the application in development mode"
       npm run start:dev
@@ -20,4 +19,4 @@ case "$ENVIRONMENT" in
       echo "Starting the application in test mode"
       npm run start:prod
       ;;
-
+esac

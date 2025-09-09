@@ -1,4 +1,5 @@
 FROM node:14
+
 ARG SRC_DIR=/opt/i27
 
 # Create directory inside the container
@@ -17,10 +18,10 @@ RUN npm install
 EXPOSE 3000
 
 # Copy the entrypoint script
-COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh $SRC_DIR/entrypoint.sh
 
 # Make the script executable
-RUN chmod +x /entrypoint.sh
+RUN chmod +x $SRC_DIR/entrypoint.sh
 
 # Use CMD instead of ENTRYPOINT to start the application
-CMD ["/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
